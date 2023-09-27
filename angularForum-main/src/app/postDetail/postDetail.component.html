@@ -1,0 +1,29 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()">
+      <label for="postId">Enter Post ID:</label>
+      <input type="number" id="postId" name="postId" [(ngModel)]="postId">
+      <button type="submit">Get Post Details</button>
+    </form>
+  </div>
+  
+  <div *ngIf="post" class="post-details">
+    <table>
+      <tr>
+        <th>Post ID:</th>
+        <td>{{ post.id }}</td>
+      </tr>
+      <tr>
+        <th>Content:</th>
+        <td>{{ post.content }}</td>
+      </tr>
+      <tr>
+        <th>Created At:</th>
+        <td>{{ post.timestamp }}</td>
+      </tr>
+    </table>
+  </div>
+  
+  <div *ngIf="!post" class="error">
+    <p>Post not found.</p>
+  </div>
+  
